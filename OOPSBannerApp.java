@@ -2,54 +2,53 @@ public class OOPSBannerApp {
 
     public static void main(String[] args) {
 
-        String line1 = String.join(" ",
+        String[] banner = new String[7];
+
+        banner[0] = String.join(" ",
                 " ******** ",
                 " ******** ",
                 " ******** ",
                 " ******** ");
 
-        String line2 = String.join(" ",
+        banner[1] = String.join(" ",
                 "*        *",
                 "*        *",
                 "*        *",
                 "*        *");
 
-        String line3 = String.join(" ",
+        banner[2] = String.join(" ",
                 "*        *",
                 "*        *",
                 "*        *",
                 "*        *");
 
-        String line4 = String.join(" ",
+        banner[3] = String.join(" ",
                 "*        *",
                 "*        *",
                 " ******** ",
                 " ******** ");
 
-        String line5 = String.join(" ",
+        banner[4] = String.join(" ",
                 "*        *",
                 "*        *",
                 "*         ",
                 "*        ");
 
-        String line6 = String.join(" ",
+        banner[5] = String.join(" ",
                 "*        *",
                 "*        *",
                 "*         ",
                 "*        ");
 
-        String line7 = String.join(" ",
+        banner[6] = String.join(" ",
                 " ******** ",
                 " ******** ",
                 "*         ",
                 " ******** ");
 
-        System.out.println(line1);
-        System.out.println(line2);
-        System.out.println(line3);
-        System.out.println(line4);
-        System.out.println(line5);
-        System.out.println(line6);
-        System.out.println(line7);
+        // Enhanced for loop
+        for (String line : banner) {
+            System.out.println(line);
+        }
     }
 }
