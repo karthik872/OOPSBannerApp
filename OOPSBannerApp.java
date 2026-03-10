@@ -1,53 +1,84 @@
 public class OOPSBannerApp {
 
+    // Inner Static Class
+    static class CharacterPattern {
+        private char character;
+        private String[] pattern;
+
+        public CharacterPattern(char character, String[] pattern) {
+            this.character = character;
+            this.pattern = pattern;
+        }
+
+        public char getCharacter() {
+            return character;
+        }
+
+        public String[] getPattern() {
+            return pattern;
+        }
+    }
+
+    public static CharacterPattern getCharacterPattern(char ch) {
+
+        switch (ch) {
+
+            case 'O':
+                return new CharacterPattern('O', new String[]{
+                        " ******** ",
+                        "*        *",
+                        "*        *",
+                        "*        *",
+                        "*        *",
+                        "*        *",
+                        " ******** "
+                });
+
+            case 'P':
+                return new CharacterPattern('P', new String[]{
+                        " ******** ",
+                        "*        *",
+                        "*        *",
+                        " ******** ",
+                        "*         ",
+                        "*         ",
+                        "*         "
+                });
+
+            case 'S':
+                return new CharacterPattern('S', new String[]{
+                        " ******** ",
+                        "*         ",
+                        "*         ",
+                        " ******** ",
+                        "         *",
+                        "         *",
+                        " ******** "
+                });
+
+            default:
+                return null;
+        }
+    }
+
     public static void main(String[] args) {
 
-        String[] banner = {
+        String word = "OOPS";
 
-            String.join(" ",
-                    " ******** ",
-                    " ******** ",
-                    " ******** ",
-                    " ******** "),
+        CharacterPattern[] patterns = new CharacterPattern[word.length()];
 
-            String.join(" ",
-                    "*        *",
-                    "*        *",
-                    "*        *",
-                    "*        *"),
+        for (int i = 0; i < word.length(); i++) {
+            patterns[i] = getCharacterPattern(word.charAt(i));
+        }
 
-            String.join(" ",
-                    "*        *",
-                    "*        *",
-                    "*        *",
-                    "*        *"),
+        for (int row = 0; row < 7; row++) {
 
-            String.join(" ",
-                    "*        *",
-                    "*        *",
-                    " ******** ",
-                    " ******** "),
+            StringBuilder line = new StringBuilder();
 
-            String.join(" ",
-                    "*        *",
-                    "*        *",
-                    "*         ",
-                    "*        "),
+            for (CharacterPattern cp : patterns) {
+                line.append(cp.getPattern()[row]).append("  ");
+            }
 
-            String.join(" ",
-                    "*        *",
-                    "*        *",
-                    "*         ",
-                    "*        "),
-
-            String.join(" ",
-                    " ******** ",
-                    " ******** ",
-                    "*         ",
-                    " ******** ")
-        };
-
-        for (String line : banner) {
             System.out.println(line);
         }
     }
